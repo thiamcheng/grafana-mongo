@@ -7,6 +7,7 @@ RUN apk update && \
     apk add --no-cache npm && \ 
     wget https://github.com/JamesOsgood/mongodb-grafana/archive/master.tar.gz -O - | tar xz -C $GF_PATHS_PLUGINS && \
     cd  $GF_PATHS_PLUGINS/mongodb-grafana-master && \
+    export GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=grafana-mongodb-datasource && \
     npm install --silent && \
     npm cache clean --force && \
      echo "finished"
