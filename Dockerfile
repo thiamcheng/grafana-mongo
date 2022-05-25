@@ -15,4 +15,6 @@ COPY grafana.ini /etc/grafana/
 
 USER grafana
 
+EXPOSE 3000
+
 ENTRYPOINT ["/bin/sh", "-c" , "npm run server --prefix $GF_PATHS_PLUGINS/mongodb-grafana-master & /run.sh"]
