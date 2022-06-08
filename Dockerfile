@@ -12,7 +12,8 @@ RUN apk update && \
     echo "finished"
 
 COPY grafana.ini /etc/grafana/
-ADD /var/lib/grafana/plugins/mongodb-grafana-master/ /var/lib
+RUN  wget https://github.com/JamesOsgood/mongodb-grafana/archive/master.tar.gz -O - | tar xz -C /var/lib
+
 
 USER grafana
 
