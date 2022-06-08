@@ -7,10 +7,10 @@ RUN apk update && \
     apk add --no-cache npm && \ 
     wget https://github.com/JamesOsgood/mongodb-grafana/archive/master.tar.gz -O - | tar xz -C $GF_PATHS_PLUGINS && \
     cd  $GF_PATHS_PLUGINS/mongodb-grafana-master && \
-    cp /var/lib/grafana/plugins/mongodb-grafana-master /var/lib \
     npm install --silent && \
     npm cache clean --force && \
-     echo "finished"
+    cp /var/lib/grafana/plugins/mongodb-grafana-master /var/lib && \
+    echo "finished"
 
 COPY grafana.ini /etc/grafana/
 
