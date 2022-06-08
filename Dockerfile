@@ -9,10 +9,10 @@ RUN apk update && \
     cd  $GF_PATHS_PLUGINS/mongodb-grafana-master && \
     npm install --silent && \
     npm cache clean --force && \
-    cp /var/lib/grafana/plugins/mongodb-grafana-master /var/lib && \
     echo "finished"
 
 COPY grafana.ini /etc/grafana/
+ADD /var/lib/grafana/plugins/mongodb-grafana-master/ /var/lib
 
 USER grafana
 
